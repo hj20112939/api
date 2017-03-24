@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RequestTask">
+  <insert id="insertRequestTaskInfo">
+    insert into SpiderDB_01.dbo.T_Other_jinrong_task (RequestTarget,RequestTaskId,RequestData,ExtendField)
+    values
+    <foreach collection="insertList" item="item" index="index" separator=",">
+     (#{item.RequestTarget},#{item.RequestTaskId},#{item.RequestData},#{item.ExtendField})
+    </foreach>
+  </insert>
+</mapper>
